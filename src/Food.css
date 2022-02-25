@@ -1,0 +1,5 @@
+.food__recipes {
+	margin-top: 24px;
+	display: grid;
+	grid-template-columns: 230px 230px;
+}

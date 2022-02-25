@@ -1,9 +1,11 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import RecipeTile from './RecipeTile';
+import './Food.js';
 
-export const Food = () => {
+const Food = () => {
 	const [query, setQuery] = useState('');
-	const [rcp, setRcp] = useState('');
+	const [recipes, setRecipes] = useState([]);
 	const [list, setList] = useState('alcohol-free');
 	const YOUR_APP_ID = '727195e4';
 	const YOUR_APP_KEY = '733c494d33f22989e7085b56140b05b9';
@@ -11,7 +13,7 @@ export const Food = () => {
 
 	async function getRecipe() {
 		const result = await axios.get(url);
-		setRcp(result.data.hits);
+		setRecipes(result.data.hits);
 		console.log(result.data);
 	}
 
@@ -32,15 +34,13 @@ export const Food = () => {
 				<button type="submit">Search</button>
 			</form>
 
-			<div>
-				{rcp.map((item, index) => {
-					return (
-						<div>
-							<p>{item['recipe']['label']}</p>
-						</div>
-					);
+			<div className="food__recipes">
+				{recipes.map((recipe) => {
+					return <RecipeTile recipe={recipe} />;
 				})}
 			</div>
 		</div>
 	);
 };
+
+export default Food;
