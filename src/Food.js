@@ -26,12 +26,13 @@ const Food = () => {
 		<div>
 			<form className="form_1" onSubmit={submitForm}>
 				<input
+					className="food__input"
 					type="text"
 					placeholder="Search name of food"
 					value={query}
 					onChange={(e) => setQuery(e.target.value)}
 				/>
-				<button type="submit">Search</button>
+				<input className="food__submit" type="submit" value="Search" />
 			</form>
 
 			<div className="food__recipes">
