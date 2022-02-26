@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import RecipeTile from './RecipeTile';
-import './Food.js';
+import './Food.css';
 
 const Food = () => {
 	const [query, setQuery] = useState('');
@@ -25,6 +25,8 @@ const Food = () => {
 	return (
 		<div>
 			<form className="form_1" onSubmit={submitForm}>
+				<h1>Food Recipe Webpage</h1>
+
 				<input
 					className="food__input"
 					type="text"
